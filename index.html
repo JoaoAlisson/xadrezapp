@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title>Xadrez</title>
+
+  <script src="js/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/semantic.min.css">
+  <script src="js/semantic.min.js"></script>
+  <!-- <script type="text/javascript" charset="utf-8" src="phonegap-1.0.0.js"></script> -->
+  <script type="text/javascript" charset="utf-8" src="phonegap-1.0.0.js"></script>
+</head>
+
+<style type="text/css">
+
+  .tabuleiro {
+    border: 1px solid #1b1c1d;
+    margin: 0 auto;
+  }
+
+  .preta {
+    background-color: #1b1c1d;
+  }
+
+  .linha {
+    float: left;
+    height: 12.5%;
+    width: 100%;
+  }
+
+  .casa {
+    float: left;
+    width: 12.5%;
+    height: 100%;
+  }
+
+  .casaCorreta {
+    width: 100%;
+    height: 100%;
+
+    background-color: rgb(76, 255, 94);
+  }
+
+  .casaErrada {
+    width: 100%;
+    height: 100%;
+
+    background-color: rgb(252, 80, 86);
+  }
+</style>
+<script type="text/javascript">
+  document.addEventListener("deviceready", onDeviceReady, false);
+
+  // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
+  function onDeviceReady() {
+    // Now safe to use the PhoneGap API
+    ajustaTamanho();
+    alert('aqui');
+    apppronto();
+  }
+
+  function ajustaTamanho()
+  { 
+
+      if($(document).width() < 1000) {
+        width = ($(document).width() * 0.95) + 'px';
+
+        $('#tabuleiro').css('width', width);
+        $('#tabuleiro').css('height', width);
+      } else {
+        $('#tabuleiro').css('width', '500px');
+        $('#tabuleiro').css('height', '500px');       
+      } 
+  }
+
+  $(window).resize(function() {
+    ajustaTamanho();
+  }); 
+
+  $(document).ready(function() {
+    ajustaTamanho();
+  });
+</script>
+<body>
+
+<div class="ui fixed inverted dinverted menu">
+  <div class="ui container">
+    <div class="ui simple dropdown item">
+      Desenvolvido por&nbsp; <b>João Alisson</b> 
+    </div>
+  </div>
+</div>
+
+<div style="width: 100%">
+  <div style="max-width: 900px; margin: 0 auto;">
+
+  <script src="js/chessapp/helpers.min.js"></script>
+<script src="js/chessapp/treino1.min.js"></script>
+
+<style type="text/css">
+	#tabuleiro {
+		display: none;
+	}
+
+	#botao {
+		min-width: 100px;
+		max-width: 300px;
+		margin: 0 auto;
+	}
+
+	#button {
+		min-width: 100%;
+	}
+</style>
+
+<br>	
+	<br>
+	<br>
+	<div id='botao'>
+		<button class="massive ui black button" id="button">e1</button>
+	</div>
+	<div class="tabuleiro" id="tabuleiro"><div class='linha' id='8'><div class='casa preta' id='a8'></div><div class='casa branca' id='b8'></div><div class='casa preta' id='c8'></div><div class='casa branca' id='d8'></div><div class='casa preta' id='e8'></div><div class='casa branca' id='f8'></div><div class='casa preta' id='g8'></div><div class='casa branca' id='h8'></div></div><div class='linha' id='7'><div class='casa branca' id='a7'></div><div class='casa preta' id='b7'></div><div class='casa branca' id='c7'></div><div class='casa preta' id='d7'></div><div class='casa branca' id='e7'></div><div class='casa preta' id='f7'></div><div class='casa branca' id='g7'></div><div class='casa preta' id='h7'></div></div><div class='linha' id='6'><div class='casa preta' id='a6'></div><div class='casa branca' id='b6'></div><div class='casa preta' id='c6'></div><div class='casa branca' id='d6'></div><div class='casa preta' id='e6'></div><div class='casa branca' id='f6'></div><div class='casa preta' id='g6'></div><div class='casa branca' id='h6'></div></div><div class='linha' id='5'><div class='casa branca' id='a5'></div><div class='casa preta' id='b5'></div><div class='casa branca' id='c5'></div><div class='casa preta' id='d5'></div><div class='casa branca' id='e5'></div><div class='casa preta' id='f5'></div><div class='casa branca' id='g5'></div><div class='casa preta' id='h5'></div></div><div class='linha' id='4'><div class='casa preta' id='a4'></div><div class='casa branca' id='b4'></div><div class='casa preta' id='c4'></div><div class='casa branca' id='d4'></div><div class='casa preta' id='e4'></div><div class='casa branca' id='f4'></div><div class='casa preta' id='g4'></div><div class='casa branca' id='h4'></div></div><div class='linha' id='3'><div class='casa branca' id='a3'></div><div class='casa preta' id='b3'></div><div class='casa branca' id='c3'></div><div class='casa preta' id='d3'></div><div class='casa branca' id='e3'></div><div class='casa preta' id='f3'></div><div class='casa branca' id='g3'></div><div class='casa preta' id='h3'></div></div><div class='linha' id='2'><div class='casa preta' id='a2'></div><div class='casa branca' id='b2'></div><div class='casa preta' id='c2'></div><div class='casa branca' id='d2'></div><div class='casa preta' id='e2'></div><div class='casa branca' id='f2'></div><div class='casa preta' id='g2'></div><div class='casa branca' id='h2'></div></div><div class='linha' id='1'><div class='casa branca' id='a1'></div><div class='casa preta' id='b1'></div><div class='casa branca' id='c1'></div><div class='casa preta' id='d1'></div><div class='casa branca' id='e1'></div><div class='casa preta' id='f1'></div><div class='casa branca' id='g1'></div><div class='casa preta' id='h1'></div></div></div>
+
+		</div>
+	</div>
+</body>
+</html>
